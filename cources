@@ -1,0 +1,15 @@
+While there is no "official" downloadable offline course file, Wazuh provides extensive training materials and documentation for security engineers at no cost. 
+Official Training & Materials
+Wazuh Training Syllabus: The official Wazuh for Security Engineers syllabus is available for download as a PDF. It outlines a 4-day intensive structure covering architecture, log analysis, decoders, rulesets, and incident response.
+Official Documentation: The Wazuh Documentation serves as the primary technical resource, including a Getting Started guide and detailed configuration manuals for all features.
+Offline Installation Guide: For engineers working in air-gapped or restricted environments, Wazuh provides an offline installation guide to help set up the platform without an internet connection. 
+Free Alternative Learning Platforms
+Several reputable third-party platforms offer structured Wazuh courses for security engineers for free: 
+TryHackMe: The Wazuh Room provides a hands-on, interactive environment to practice SIEM and EDR tasks.
+LetsDefend: Offers a Wazuh training module covering installation, custom log parsing, and writing correlation rules.
+YouTube Tutorials:
+2-Hour+ Wazuh Crash Course specifically designed for security analysts.
+Wazuh Tutorial for Beginners which includes demonstration of hacking techniques and detection. 
+Quickstart Resources
+All-in-one Installation: For rapid lab setup, use the Wazuh Quickstart, which installs the server, indexer, and dashboard on a single host.
+GitHub Repository: Access the source code, community-contributed scripts, and additional tools directly on GitHub. 
