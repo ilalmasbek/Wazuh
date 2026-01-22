@@ -61,8 +61,7 @@ sudo filebeat test config
 sudo systemctl restart filebeat
 sudo journalctl -u filebeat -f
 sudo systemctl status filebeat
+sudo tcpdump -i any port 515 -nn -A
 
 sudo filebeat test config -c /etc/filebeat/filebeat.yml
-
-
-q
+formats RFC 3164, RFC 5424, JSON, 
