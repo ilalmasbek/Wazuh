@@ -1,0 +1,68 @@
+/var/ossec/bin/manage_agents
+****************************************
+* Wazuh v4.14.1 Agent manager.         *
+* The following options are available: *
+****************************************
+   (A)dd an agent (A).
+   (E)xtract key for an agent (E).
+   (L)ist already added agents (L).
+   (R)emove an agent (R).
+   (Q)uit.
+   
+Choose your action: A,E,L,R or Q: A
+- Adding a new agent (use '\q' to return to the main menu).
+  Please provide the following:
+   * A name for the new agent: AGENT-NAME
+   * The IP Address of the new agent: any
+Confirm adding it?(y/n): y
+Agent added with ID xxx.
+
+Choose your action: A,E,L,R or Q: Q
+
+Menu -> agents management -> groups -> click needed "group-name" -> manage agents -> in left site click the created "agent" -> click "Add selected items" button -> Apply changes 
+
+nano /etc/filebeat/filebeat.yml
+filebeat.inputs:
+  - type: syslog
+    protocol.udp:
+      host: "0.0.0.0:514-600"  # Filebeat listens on a udp port *range*
+    fields_under_root: true
+    fields:
+      syslog_input: true
+
+  - type: syslog
+    protocol.tcp:
+      host: "0.0.0.0:514-600" #tcp range
+    fields_under_root: true
+    fields:
+      syslog_input: true
+
+processors:
+  - add_fields:
+      when:
+        and:
+          - equals.source.ip: "206.62.53.82"   # Client A's public IP
+          - equals.input.harvester.port: 515
+      target: agent
+      fields:
+        name: "fortigate-40f"
+
+  - add_fields:
+      when:
+        and:
+          - equals.source.ip: "206.62.53.82"
+          - equals.input.harvester.port: 514
+      target: agent
+      fields:
+        name: "cisco2921"
+
+
+sudo filebeat test config
+sudo systemctl restart filebeat
+sudo journalctl -u filebeat -f
+sudo systemctl status filebeat
+
+sudo filebeat test config -c /etc/filebeat/filebeat.yml
+
+
+q
