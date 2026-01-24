@@ -1,12 +1,11 @@
-# Before starting configuration, please read the readme file.
-## Create Agent groups
-Step-1: Click the Dashboard Menu -> Agents Management -> Groups -> Add new group
+## Step-1: Create Agent groups
+Click the Dashboard Menu -> Agents Management -> Groups -> Add new group
 ```shell
   client_a
 ```
 Node: repeat steps for each client
 
-Step-2: Click the Dashboard Menu -> Agents Management -> Groups -> client_a -> Files -> Edit the "agent.conf" file -> Save
+Click the Dashboard Menu -> Agents Management -> Groups -> client_a -> Files -> Edit the "agent.conf" file -> Save
 ```shell
   <agent_config>
     <labels>
@@ -15,10 +14,10 @@ Step-2: Click the Dashboard Menu -> Agents Management -> Groups -> client_a -> F
   </agent_config>
 ```
 Node: repeat steps for each client
-## Add agents to group
-Step-1: Click the Dashboard Menu -> Agents Management -> Groups -> "client_a" -> Manage agents -> 
+## Step-2: Add agents to group
+Click the Dashboard Menu -> Agents Management -> Groups -> "client_a" -> Manage agents -> 
 
-Step-2: Select needed Available agents -> Click Add selected items -> Apply changes
+Select needed Available agents -> Click Add selected items -> Apply changes
 
 Check commands:
 ```shell
@@ -27,7 +26,7 @@ sudo /var/ossec/bin/agent_groups -l
 ```shell
 sudo /var/ossec/bin/agent_control -l
 ```
-## Step-1: Enable multi-tenant function
+## Step-3: Enable multi-tenant function
 In CLI open below file
 ```shell
 sudo nano /etc/wazuh-dashboard/opensearch_dashboards.yml
@@ -41,19 +40,19 @@ Reset the wazuh-dashboard service
 ```shell
 sudo systemctl restart wazuh-dashboard
 ```
-## Step-2: Create tenants
+## Step-4: Create tenants
 Click the Dashboard Menu -> Indexer management -> Security -> Tenants -> Create tenant ->
 ```shell
 tenant_client_a
 ```
 Node: repeat steps for each client
-## Step-3: Create internal users
+## Step-5: Create internal users
 Click the Dashboard Menu -> Indexer management -> Security -> Internal users -> Create Internal user -> 
 ```shell
 user_client_a
 ```
 Node: repeat steps for each client
-## Step-4: Create tenant role to merge user with tenant
+## Step-6: Create tenant role to merge user with tenant
 Click the Dashboard Menu -> Indexer management -> Security -> Roles -> Create Role ->
 
 Name
@@ -83,7 +82,7 @@ tenant_client_a
 ```shell
 read and write
 ```
-## Step-5: Create RBAC policy to restrict accesses 
+## Step-7: Create RBAC policy to restrict accesses 
 Click the Dashboard Menu -> Server Management -> Security -> Policies -> Create Policy -> 
 
 Policy name
@@ -118,7 +117,7 @@ Select an effect
 Allow
 ```
 Node: repeat steps for each client
-## Step-6: Create role to add RBAC policy 
+## Step-8: Create role to add RBAC policy 
 Click the Dashboard Menu -> Server Management -> Security -> Roles -> Create Role -> 
 
 Role name
@@ -130,7 +129,7 @@ Policies
 client_a_policies
 ```
 Node: repeat steps for each client
-## Step-7: Create Mapping role to marge Role with Internal User
+## Step-9: Create Mapping role to marge Role with Internal User
 Click the Dashboard Menu -> Server Management -> Security -> Roles mapping -> Create Role mapping -> Save role mapping
 
 Role name
@@ -146,7 +145,7 @@ Map internal users
 user_client_a
 ```
 Node: repeat steps for each client
-## Step-8: Change run_as status of default host 
+## Step-10: Change run_as status of default host 
 Open the wazuh.yml file through CLI
 ```shell
 sudo nano /usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml
