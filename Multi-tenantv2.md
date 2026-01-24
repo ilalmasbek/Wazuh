@@ -144,3 +144,19 @@ Map internal users
 user_client_a
 ```
 Node: repeat steps for each client
+## Step-8: Change run_as status of default host 
+```shell
+sudo nano /usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml
+```
+```shell
+hosts:
+  - default:
+      url: https://127.0.0.1
+      port: 55000
+      username: wazuh-wui
+      password: "xxx"
+      run_as: true
+```
+```shell
+sudo systemctl restart wazuh-dashboard
+```
