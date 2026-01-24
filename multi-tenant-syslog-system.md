@@ -67,3 +67,4 @@ sudo tcpdump -i any port 515 -nn -A
 sudo filebeat test config -c /etc/filebeat/filebeat.yml
 formats RFC 3164, RFC 5424, JSON,
 -->
+Soon...
