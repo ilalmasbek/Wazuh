@@ -1,3 +1,4 @@
+<!-- This is a hidden comment in the rendered GitHub file.
 /var/ossec/bin/manage_agents
 ****************************************
 * Wazuh v4.14.1 Agent manager.         *
@@ -64,4 +65,5 @@ sudo systemctl status filebeat
 sudo tcpdump -i any port 515 -nn -A
 
 sudo filebeat test config -c /etc/filebeat/filebeat.yml
-formats RFC 3164, RFC 5424, JSON, 
+formats RFC 3164, RFC 5424, JSON,
+-->
