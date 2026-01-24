@@ -1,3 +1,5 @@
+<img width="1365" height="771" alt="image" src="https://github.com/user-attachments/assets/18dc2326-f1d2-47be-aca2-11d4cc8001b8" />
+
 ## Step-1: Create Agent groups
 Click the Dashboard Menu -> Agents Management -> Groups -> Add new group
 ```shell
