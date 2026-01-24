@@ -1,5 +1,3 @@
-<img width="878" height="335" alt="image" src="https://github.com/user-attachments/assets/f7ceeb0d-4d6d-4ba9-8b36-a4438e6e1209" />
-
 ## Step-1: Create Agent groups
 Click the Dashboard Menu -> Agents Management -> Groups -> Add new group
 ```shell
@@ -18,8 +16,10 @@ Click the Dashboard Menu -> Agents Management -> Groups -> client_a -> Files -> 
 Node: repeat steps for each client
 ## Step-2: Add agents to group
 Click the Dashboard Menu -> Agents Management -> Groups -> "client_a" -> Manage agents -> 
+<img width="1882" height="149" alt="image" src="https://github.com/user-attachments/assets/6ef87ae6-92ea-4503-8a27-01f3532e12d8" />
 
 Select needed Available agents -> Click Add selected items -> Apply changes
+<img width="1882" height="674" alt="image" src="https://github.com/user-attachments/assets/cfed411f-2fc4-4f7a-b130-db3314e749d4" />
 
 Check commands:
 ```shell
