@@ -147,7 +147,7 @@ Map internal users
 user_client_a
 ```
 Node: repeat steps for each client
-## Step-10: Change run_as status of default host 
+## Step-10: Change run_as status of default group 
 Open the wazuh.yml file through CLI
 ```shell
 sudo nano /usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml
