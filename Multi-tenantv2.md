@@ -63,7 +63,7 @@ Index permissions
 ```shell
 wazuh-*
 ```
-Document level security
+Document level security (group-lable-name)
 ```shell
 { 
     "bool": { 
@@ -82,8 +82,40 @@ tenant_client_a
 ```shell
 read and write
 ```
+## Step-5: Create RBAC policy to restrict accesses 
+Click the Dashboard Menu -> Server Management -> Security -> Policies -> Create Policy -> 
 
-
+Policy name
+```shell
+client_a_policies
+```
+Action -> Add
+```shell
+agent:read
+agent:reconnect
+agent:restart
+group:read
+group:update_config
+sca:read
+```
+Resource -> Add
+```shell
+agent:group
+```
+```shell
+group:id
+```
+Resource identifier (group-name)
+```shell
+client_a
+```
+```shell
+client_a
+```
+Select an effect
+```shell
+Allow
+```
 
 
 
