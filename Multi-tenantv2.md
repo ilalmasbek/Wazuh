@@ -5,6 +5,7 @@ Step-1: Click the Dashboard Menu -> Agents Management -> Groups -> Add new group
   client_a
 ```
 Node: repeat steps for each client
+
 Step-2: Click the Dashboard Menu -> Agents Management -> Groups -> client_a -> Files -> Edit the "agent.conf" file -> Save
 ```shell
   <agent_config>
@@ -119,6 +120,7 @@ Allow
 Node: repeat steps for each client
 ## Step-6: Create role to add RBAC policy 
 Click the Dashboard Menu -> Server Management -> Security -> Roles -> Create Role -> 
+
 Role name
 ```shell
 client_a_role
@@ -145,9 +147,11 @@ user_client_a
 ```
 Node: repeat steps for each client
 ## Step-8: Change run_as status of default host 
+Open the wazuh.yml file through CLI
 ```shell
 sudo nano /usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml
 ```
+Edit run_as status to true
 ```shell
 hosts:
   - default:
@@ -157,6 +161,7 @@ hosts:
       password: "xxx"
       run_as: true
 ```
+Restart the dashboard service
 ```shell
 sudo systemctl restart wazuh-dashboard
 ```
