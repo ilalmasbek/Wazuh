@@ -32,6 +32,7 @@ Step-2: Click the Dashboard Menu -> Agents Management -> Groups -> client_a -> F
 
 ## Add agents to group
 Step-1: Click the Dashboard Menu -> Agents Management -> Groups -> "client_a" -> Manage agents -> 
+
 Step-2: Select needed Available agents -> Click Add selected items -> Apply changes
 Check commands:
 ```shell
