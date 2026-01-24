@@ -34,6 +34,7 @@ Step-2: Click the Dashboard Menu -> Agents Management -> Groups -> client_a -> F
 Step-1: Click the Dashboard Menu -> Agents Management -> Groups -> "client_a" -> Manage agents -> 
 
 Step-2: Select needed Available agents -> Click Add selected items -> Apply changes
+
 Check commands:
 ```shell
 sudo /var/ossec/bin/agent_groups -l
