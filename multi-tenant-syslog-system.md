@@ -45,9 +45,19 @@ Finally, make sure the command looks like this.
 
 <img width="787" height="499" alt="image" src="https://github.com/user-attachments/assets/3935eb4b-1e7e-46e0-9c23-ec3a9d69a664" />
 
-sudo ss -lunp | grep 5514
+## Step-3: Configure network devices so that they sends syslog to wazuh server public ip address or domain
 
+## Step-4: Сheck whether syslogs are being sent to the Wazuh server.
+Wrute these commands in the command line
+```shell
+sudo ss -lunp | grep 5514
+```
+<img width="1185" height="63" alt="image" src="https://github.com/user-attachments/assets/57d873c8-039c-43f9-b9cd-369f9241252c" />
+
+```shell
 sudo tcpdump -n -i any udp port 5514 -c 10
+```
+<img width="902" height="346" alt="image" src="https://github.com/user-attachments/assets/04202029-d55c-48cf-a417-717577c46fac" />
 
 
 
