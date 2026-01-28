@@ -1,70 +1,127 @@
 <!-- This is a hidden comment in the rendered GitHub file.
-/var/ossec/bin/manage_agents
-****************************************
-* Wazuh v4.14.1 Agent manager.         *
-* The following options are available: *
-****************************************
-   (A)dd an agent (A).
-   (E)xtract key for an agent (E).
-   (L)ist already added agents (L).
-   (R)emove an agent (R).
-   (Q)uit.
-   
-Choose your action: A,E,L,R or Q: A
-- Adding a new agent (use '\q' to return to the main menu).
-  Please provide the following:
-   * A name for the new agent: AGENT-NAME
-   * The IP Address of the new agent: any
-Confirm adding it?(y/n): y
-Agent added with ID xxx.
+sudo nano /var/ossec/etc/ossec.conf
+<remote>
+  <connection>syslog</connection>
+  <port>5514</port>
+  <protocol>udp</protocol>
+  <allowed-ips>0.0.0.0/0</allowed-ips>
+</remote>
 
-Choose your action: A,E,L,R or Q: Q
+sudo systemctl restart wazuh-manager
+sudo ss -lunp | grep 5514
 
-Menu -> agents management -> groups -> click needed "group-name" -> manage agents -> in left site click the created "agent" -> click "Add selected items" button -> Apply changes 
-
-nano /etc/filebeat/filebeat.yml
-filebeat.inputs:
-  - type: syslog
-    protocol.udp:
-      host: "0.0.0.0:514-600"  # Filebeat listens on a udp port *range*
-    fields_under_root: true
-    fields:
-      syslog_input: true
-
-  - type: syslog
-    protocol.tcp:
-      host: "0.0.0.0:514-600" #tcp range
-    fields_under_root: true
-    fields:
-      syslog_input: true
-
+sudo nano /etc/filebeat/filebeat.yml
 processors:
   - add_fields:
-      when:
-        and:
-          - equals.source.ip: "206.62.53.82"   # Client A's public IP
-          - equals.input.harvester.port: 515
-      target: agent
+      target: fields
       fields:
-        name: "fortigate-40f"
+        index_prefix: "wazuh-alerts-4.x-"
 
+  # tenant B
   - add_fields:
       when:
         and:
-          - equals.source.ip: "206.62.53.82"
-          - equals.input.harvester.port: 514
-      target: agent
+          - equals: { agent.id: "000" }
+          - network: { location: ["X.X.X.X/32"] }
+      target: fields
       fields:
-        name: "cisco2921"
+        index_prefix: "wazuh-alerts-4.x-client_b-"
 
-
-sudo filebeat test config
 sudo systemctl restart filebeat
-sudo journalctl -u filebeat -f
-sudo systemctl status filebeat
-sudo tcpdump -i any port 515 -nn -A
 
-sudo filebeat test config -c /etc/filebeat/filebeat.yml
-formats RFC 3164, RFC 5424, JSON,
+
+
 -->
 Soon...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- default filebeat.yml config:
+sudo nano /etc/filebeat/filebeat.yml
+
+# Wazuh - Filebeat configuration file
+output.elasticsearch.hosts:
+        - 127.0.0.1:9200
+#        - <elasticsearch_ip_node_2>:9200
+#        - <elasticsearch_ip_node_3>:9200
+
+output.elasticsearch:
+  protocol: https
+  username: ${username}
+  password: ${password}
+  ssl.certificate_authorities:
+    - /etc/filebeat/certs/root-ca.pem
+  ssl.certificate: "/etc/filebeat/certs/wazuh-server.pem"
+  ssl.key: "/etc/filebeat/certs/wazuh-server-key.pem"
+setup.template.json.enabled: true
+setup.template.json.path: '/etc/filebeat/wazuh-template.json'
+setup.template.json.name: 'wazuh'
+setup.ilm.overwrite: true
+setup.ilm.enabled: false
+
+filebeat.modules:
+  - module: wazuh
+    alerts:
+      enabled: true
+    archives:
+      enabled: false
+
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat
+  keepfiles: 7
+  permissions: 0644
+
+logging.metrics.enabled: false
+
+seccomp:
+  default_action: allow
+  syscalls:
+  - action: allow
+    names:
+    - rseq
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DLS
+{
+  "bool": {
+    "should": [
+      { "term": { "agent.labels.group": "client_b" } },
+      { "term": { "agent.id": "000" } }
+    ],
+    "minimum_should_match": 1
+  }
+}
+
+
+-->
+    
+
+
