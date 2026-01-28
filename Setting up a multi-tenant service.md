@@ -63,9 +63,13 @@ Name
 ```shell
 role_tenant_a
 ```
-Index permissions
+Index
 ```shell
 wazuh-*
+```
+Index permissions
+```shell
+read, search, indeces_monitor
 ```
 Document level security (group-lable-name)
 ```shell
@@ -79,6 +83,8 @@ Document level security (group-lable-name)
     } 
 }
 ```
+<img width="1871" height="791" alt="image" src="https://github.com/user-attachments/assets/a54ce21c-0d10-4de5-89fa-b02e262fb2e0" />
+
 Tenant permissions
 ```shell
 tenant_client_a
@@ -86,7 +92,15 @@ tenant_client_a
 ```shell
 read and write
 ```
-## Step-7: Create RBAC policy to restrict accesses 
+<img width="1440" height="235" alt="image" src="https://github.com/user-attachments/assets/b327a1ef-1272-43e4-88fe-0092a0503a09" />
+## Step-7: Create Mapping users to marge Tenant Role with Internal User
+Click the Dashboard Menu -> Indexer management -> Security -> Roles -> role_tenant_client_a -> Mapped users -> Map users
+<img width="1889" height="606" alt="image" src="https://github.com/user-attachments/assets/263cef1f-ab05-44dd-828a-af7b7a85ed89" />
+
+
+
+
+## Step-8: Create RBAC policy to restrict accesses 
 Click the Dashboard Menu -> Server Management -> Security -> Policies -> Create Policy -> 
 
 Policy name
@@ -121,7 +135,7 @@ Select an effect
 Allow
 ```
 Node: repeat steps for each client
-## Step-8: Create role to add RBAC policy 
+## Step-9: Create role to add RBAC policy 
 Click the Dashboard Menu -> Server Management -> Security -> Roles -> Create Role -> 
 
 Role name
@@ -133,7 +147,7 @@ Policies
 client_a_policies
 ```
 Node: repeat steps for each client
-## Step-9: Create Mapping role to marge Role with Internal User
+## Step-10: Create Mapping role to marge RBAC Role with Internal User
 Click the Dashboard Menu -> Server Management -> Security -> Roles mapping -> Create Role mapping -> Save role mapping
 
 Role name
@@ -149,7 +163,7 @@ Map internal users
 user_client_a
 ```
 Node: repeat steps for each client
-## Step-10: Change run_as status of default group 
+## Step-11: Change run_as status of default group 
 Open the wazuh.yml file through CLI
 ```shell
 sudo nano /usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml
