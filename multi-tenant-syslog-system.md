@@ -16,6 +16,7 @@ Restart the wazuh manager service to apply the added command
 ```shell
 sudo systemctl restart wazuh-manager
 ```
+
 ## Step-2: Configuring pipeline to redirect incoming syslogs to the desired index patterns via srcip addresses
 Open the pipeline file
 ```shell
@@ -53,7 +54,6 @@ Wrute these commands in the command line
 sudo ss -lunp | grep 5514
 ```
 <img width="1185" height="63" alt="image" src="https://github.com/user-attachments/assets/57d873c8-039c-43f9-b9cd-369f9241252c" />
-
 ```shell
 sudo tcpdump -n -i any udp port 5514 -c 10
 ```
@@ -66,6 +66,7 @@ Fill the Index pattern name as in the pipeline config-> After that, click the "N
 <img width="1368" height="658" alt="image" src="https://github.com/user-attachments/assets/94373f93-1033-4555-8a80-79ce982a76ac" />
 In the Time field, specify @timestamp -> After, just click the "Create index pattern" 
 <img width="1359" height="602" alt="image" src="https://github.com/user-attachments/assets/31f63637-7c3a-4eae-95f7-61c4a2c5d828" />
+
 ## Step-6: Add created Index Pattern to Tenant role
 Open the Manu -> Indexer Management -> Security -> Roles -> 
 
@@ -96,8 +97,7 @@ Document level security:
 <img width="1508" height="621" alt="image" src="https://github.com/user-attachments/assets/3b062388-091d-4d0e-b2a8-dc5d56cb4182" />
 At the very below, click "Update"
 
-
-
+## Step-7:Finally, login to tenant_b through an internal user and check the syslogs
 
 
 
