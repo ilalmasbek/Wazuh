@@ -117,6 +117,8 @@ group:read
 group:update_config
 sca:read
 ```
+<img width="924" height="557" alt="image" src="https://github.com/user-attachments/assets/55e59bcd-9e41-4674-b8ab-bf5da3afe24f" />
+
 Resource -> Add
 ```shell
 agent:group
@@ -135,6 +137,8 @@ Select an effect
 ```shell
 Allow
 ```
+<img width="927" height="380" alt="image" src="https://github.com/user-attachments/assets/f36a88af-6284-4952-8e3a-2d94781be90e" />
+
 Node: repeat steps for each client
 ## Step-9: Create role to add RBAC policy 
 Click the Dashboard Menu -> Server Management -> Security -> Roles -> Create Role -> 
@@ -147,6 +151,8 @@ Policies
 ```shell
 client_a_policies
 ```
+<img width="537" height="412" alt="image" src="https://github.com/user-attachments/assets/3579329a-66af-4355-b37a-6f61ac8b8747" />
+
 Node: repeat steps for each client
 ## Step-10: Create Mapping role to marge RBAC Role with Internal User
 Click the Dashboard Menu -> Server Management -> Security -> Roles mapping -> Create Role mapping -> Save role mapping
@@ -163,6 +169,8 @@ Map internal users
 ```shell
 user_client_a
 ```
+<img width="917" height="823" alt="image" src="https://github.com/user-attachments/assets/c3b733b3-7ccd-4439-b4ac-2bc1985523f1" />
+
 Node: repeat steps for each client
 ## Step-11: Change run_as status of default group 
 Open the wazuh.yml file through CLI
