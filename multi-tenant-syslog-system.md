@@ -9,6 +9,7 @@ sudo nano /var/ossec/etc/ossec.conf
 
 sudo systemctl restart wazuh-manager
 sudo ss -lunp | grep 5514
+root@testwazuh:~# sudo tcpdump -n -i any udp port 5514 -c 10
 
 sudo nano /etc/filebeat/filebeat.yml
 processors:
