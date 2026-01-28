@@ -73,7 +73,28 @@ Search needed role "role_tenant_client_b"
 <img width="1667" height="414" alt="image" src="https://github.com/user-attachments/assets/e3f40777-17b0-4749-9fe1-9fe27337ff3a" />
 Select the role -> click the Actions -> Edit
 <img width="1678" height="481" alt="image" src="https://github.com/user-attachments/assets/b0d7515b-0217-4b78-bbb1-9c51ca5369c0" />
+In field "Index permissions" click the "Add another index permission"
+<img width="314" height="69" alt="image" src="https://github.com/user-attachments/assets/c70631a1-4394-4037-af8b-4b0ec2e6fb04" />
+Fill in the following fields:
 
+Index: client_b-wazuh-alerts-4.x-*
+
+Index permissions: read, search, indices_monitor
+
+Document level security:
+```shell
+{ 
+    "bool": { 
+        "must": { 
+            "match": { 
+                "agent.id": "000" 
+            } 
+        } 
+    } 
+}
+```
+<img width="1508" height="621" alt="image" src="https://github.com/user-attachments/assets/3b062388-091d-4d0e-b2a8-dc5d56cb4182" />
+At the very below, click "Update"
 
 
 
