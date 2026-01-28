@@ -59,6 +59,27 @@ sudo tcpdump -n -i any udp port 5514 -c 10
 ```
 <img width="902" height="346" alt="image" src="https://github.com/user-attachments/assets/04202029-d55c-48cf-a417-717577c46fac" />
 
+## Step-5: Create an Index Pattern as we specified in the pipeline config
+Open the Wazuh Dashboard via Global tenant -> Clieck the Menu -> Dashboard Management -> Dashboard Managements -> Index Patterns -> Create index pattern
+<img width="1775" height="829" alt="image" src="https://github.com/user-attachments/assets/c59b1d5a-40ec-42d2-af40-e8b5f20e209d" />
+Fill the Index pattern name as in the pipeline config-> After that, click the "Next Step"
+<img width="1368" height="658" alt="image" src="https://github.com/user-attachments/assets/94373f93-1033-4555-8a80-79ce982a76ac" />
+In the Time field, specify @timestamp -> After, just click the "Create index pattern" 
+<img width="1359" height="602" alt="image" src="https://github.com/user-attachments/assets/31f63637-7c3a-4eae-95f7-61c4a2c5d828" />
+## Step-6: Add created Index Pattern to Tenant role
+Open the Manu -> Indexer Management -> Security -> Roles -> 
+
+Search needed role "role_tenant_client_b"
+<img width="1667" height="414" alt="image" src="https://github.com/user-attachments/assets/e3f40777-17b0-4749-9fe1-9fe27337ff3a" />
+Select the role -> click the Actions -> Edit
+<img width="1678" height="481" alt="image" src="https://github.com/user-attachments/assets/b0d7515b-0217-4b78-bbb1-9c51ca5369c0" />
+
+
+
+
+
+
+
 
 
 
