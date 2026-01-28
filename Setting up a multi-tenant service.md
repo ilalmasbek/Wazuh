@@ -95,10 +95,11 @@ read and write
 <img width="1440" height="235" alt="image" src="https://github.com/user-attachments/assets/b327a1ef-1272-43e4-88fe-0092a0503a09" />
 ## Step-7: Create Mapping users to marge Tenant Role with Internal User
 Click the Dashboard Menu -> Indexer management -> Security -> Roles -> role_tenant_client_a -> Mapped users -> Map users
-<img width="1889" height="606" alt="image" src="https://github.com/user-attachments/assets/263cef1f-ab05-44dd-828a-af7b7a85ed89" />
+<img width="1897" height="630" alt="image" src="https://github.com/user-attachments/assets/f456b85e-1f94-4cfc-8736-7ec446ab5983" />
+Users: user_client_a
 
-
-
+Click the Map
+<img width="1900" height="679" alt="image" src="https://github.com/user-attachments/assets/a50bc515-d643-4f6a-9e39-86739f3e8794" />
 
 ## Step-8: Create RBAC policy to restrict accesses 
 Click the Dashboard Menu -> Server Management -> Security -> Policies -> Create Policy -> 
