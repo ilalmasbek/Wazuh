@@ -50,13 +50,17 @@ Finally, make sure the command looks like this.
 
 ## Step-4: Сheck whether syslogs are being sent to the Wazuh server.
 Wrute these commands in the command line
+
 ```shell
 sudo ss -lunp | grep 5514
 ```
+
 <img width="1185" height="63" alt="image" src="https://github.com/user-attachments/assets/57d873c8-039c-43f9-b9cd-369f9241252c" />
+
 ```shell
 sudo tcpdump -n -i any udp port 5514 -c 10
 ```
+
 <img width="902" height="346" alt="image" src="https://github.com/user-attachments/assets/04202029-d55c-48cf-a417-717577c46fac" />
 
 ## Step-5: Create an Index Pattern as we specified in the pipeline config
