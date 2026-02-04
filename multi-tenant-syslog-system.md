@@ -46,7 +46,7 @@ Finally, make sure the command looks like this.
 
 <img width="787" height="499" alt="image" src="https://github.com/user-attachments/assets/3935eb4b-1e7e-46e0-9c23-ec3a9d69a664" />
 
-Restart the wazuh manager service to apply the added command
+Restart the pipeline service to apply the added command
 ```shell
 sudo filebeat setup --pipelines --modules wazuh
 ```
