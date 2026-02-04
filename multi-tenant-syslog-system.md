@@ -85,6 +85,7 @@ Select the role -> click the Actions -> Edit
 In field "Index permissions" click the "Add another index permission"
 
 <img width="314" height="69" alt="image" src="https://github.com/user-attachments/assets/c70631a1-4394-4037-af8b-4b0ec2e6fb04" />
+
 Fill in the following fields:
 
 Index: client_b-wazuh-alerts-4.x-*
